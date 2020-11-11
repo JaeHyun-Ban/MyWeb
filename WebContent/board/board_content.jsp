@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<style>
+input[type=submit] {
+	padding: 4px 4px;
+	background: #8da8db;
+	border: 0 none;
+	cursor: pointer;
+	/*
+	border-radius는 요소 테두리 경계의 꼭짓점을 둥글게 만든다
+	  하나의 값을 사용 = 원형 꼭짓점, 두 개의 값을 사용 = 타원형 꼭짓점	
+	*/
+	border-radius: 4px;
+	border-radius: 4px;
+}
+
+input[type=button] {
+	color: #333;
+	background-color: #fff;
+	border-color: #ccc;
+}
+</style>
+
+<%@ include file="../include/header.jsp"%>
+
+<div align="center" class="div_center">
+
+	<h3>게시글 내용 보기</h3>
+	<hr>
+	<table border="1" width="500">
+		<tr>
+			<td width="20%">글번호</td>
+			<td width="30%">${vo.bno }</td>
+
+			<td width="20%">조회수</td>
+			<td width="30%">${vo.hit }</td>
+		</tr>
+		<tr>
+			<td width="20%">작성자</td>
+			<td width="30%">${vo.writer }</td>
+
+			<td width="20%">작성일</td>
+			<td width="30%"><fmt:formatDate value="${vo.regdate }" pattern="yyyy년MM월dd일"/></td>
+		</tr>
+
+		<tr>
+			<td width="20%">글제목</td>
+			<td colspan="3" width="30%">${vo.title }</td>
+		</tr>
+		<tr>
+			<td width="20%">글내용</td>
+			<td colspan="3" width="30%" height="120px">${vo.content }</td>
+		</tr>
+
+		<tr>
+			<td colspan="4" align="center">
+				<input type="button" value="목록" onclick="location.href='list.board'">&nbsp;&nbsp;
+				<input type="button" value="수정" onclick="location.href='modify.board?bno=${vo.bno}&writer=${vo.writer }'">&nbsp;&nbsp; 
+				<input type="button" value="삭제" onclick="location.href='delete.board?bno=${vo.bno}&writer=${vo.writer }'">&nbsp;&nbsp;
+			</td>
+		</tr>
+	</table>
+
+
+</div>
+
+<%@ include file="../include/footer.jsp"%>
