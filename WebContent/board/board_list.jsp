@@ -55,14 +55,14 @@
 						<ul class="pagination pagination-sm">
 							<%-- 이전버튼 활성화 --%>
 							<c:if test="${pageVO.prev }">
-							<li><a href="list.board?pageNum=${pageVO.startPage -1 }&amount=${pageVO.amount }">이전</a></li>
+								<li><a href="list.board?pageNum=${pageVO.startPage -1 }&amount=${pageVO.amount }">이전</a></li>
 							</c:if>
 							<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
-							<%-- 현제 보고있는곳과 pageNum이 같다면 active 활성화 --%><%-- active = 현재 페이지색를 색칠해줌 --%>
-							<li class="${num eq pageVO.pageNum ? 'active' : '' }">
-								<%-- 아래 구간 잘 기억할 것 --%>
-								<a href="list.board?pageNum=${num }&amount=${pageVO.amount}">${num }</a>
-							</li>
+								<%-- 현제 보고있는곳과 pageNum이 같다면 active 활성화 --%><%-- active = 현재 페이지색를 색칠해줌 --%>
+								<li class="${num eq pageVO.pageNum ? 'active' : '' }">
+									<%-- 아래 구간 잘 기억할 것 --%>
+									<a href="list.board?pageNum=${num }&amount=${pageVO.amount}">${num }</a>
+								</li>
 							</c:forEach>
 							<%-- 다음버튼 활성화 --%>
 							<c:if test="${pageVO.next }">
